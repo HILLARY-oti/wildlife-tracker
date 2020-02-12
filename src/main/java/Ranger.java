@@ -4,6 +4,7 @@ import org.sql2o.*;
 public class Ranger {
     private String name;
     private String crew;
+    private int id;
 
     public Ranger(String name, String crew) {
 
