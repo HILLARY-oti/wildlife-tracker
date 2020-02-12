@@ -19,6 +19,8 @@ public class RangerTest {
         Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
         assertEquals("Rock Stock",testRanger.getName());
     }
+
+
     @Test
 
     public void getCrew_personInstantiatesWithCrew_String() {
@@ -54,10 +56,21 @@ public class RangerTest {
     }
 
     @Test
+
     public void save_assignIdToObject(){
         Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
         testRanger.save();
         Ranger savedRanger = Ranger.all().get(0);
         assertEquals(testRanger.getId(),savedRanger.getId());
+    }
+
+    @Test
+
+    public void find_returnsRangerWithSameId_secondRanger(){
+        Ranger firstRanger = new Ranger("Rock Stock", "Nyayo");
+        firstRanger.save();
+        Ranger secondRanger = new Ranger("Joker Sam", "Swat");
+        secondRanger.save();
+        assertEquals(Ranger.find(secondRanger.getId()),secondRanger);
     }
 }
