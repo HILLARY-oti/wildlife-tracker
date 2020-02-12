@@ -41,4 +41,15 @@ public class RangerTest {
         testRanger.save();
         assertTrue(Ranger.all().get(0).equals(testRanger));
     }
+
+    @Test
+
+    public void all_returnsAllInstancesOfRanger_true(){
+        Ranger firstRanger = new Ranger("Rock Stock", "Nyayo");
+        firstRanger.save();
+        Ranger secondRanger = new Ranger("Joker Sam", "Swat");
+        secondRanger.save();
+        assertEquals(true, Ranger.all().get(0).equals(firstRanger));
+        assertEquals(true, Ranger.all().get(1).equals(secondRanger));
+    }
 }
