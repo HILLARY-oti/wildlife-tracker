@@ -21,4 +21,12 @@ public class RangerTest {
         Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
         assertEquals("Nyayo", testRanger.getCrew());
     }
+
+    @Test
+
+    public void equals_returnTrueIfNameAndCrewSame_true() {
+        Ranger firstRanger = new Ranger("Rock Stock", "Nyayo");
+        Ranger anotherRanger = new Ranger("Rock Stock", "Nyayo");
+        assertTrue(firstRanger.equals(anotherRanger));
+    }
 }
