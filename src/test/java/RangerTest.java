@@ -4,6 +4,9 @@ import org.sql2o.*;
 
 public class RangerTest {
 
+    @Rule
+    public DatabaseRule database = new DatabaseRule();
+
     @Test
     public void ranger_instantiatesCorrectly_true() {
         Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
