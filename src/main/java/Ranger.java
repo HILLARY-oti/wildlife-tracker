@@ -42,10 +42,15 @@ public class Ranger {
     public void save() {
         try (Connection connect = DB.sql2o.open()) {
             String sql = "INSERT INTO rangers(name, crew) VALUES (:name, :crew)";
-            connect.createQuery(sql)
+            this.id = (int) connect.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .addParameter("crew", this.crew)
-                    .executeUpdate();
+                    .executeUpdate()
+                    .getKey();
         }
+    }
+
+    public int getId(){
+        return id;
     }
 }
