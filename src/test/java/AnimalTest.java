@@ -30,4 +30,13 @@ public class AnimalTest {
         Animal testAnimal = new Animal(1, "Lion");
         assertEquals("Lion",testAnimal.getName());
     }
+
+    @Test
+
+    public void equals_returnsTrueIfNameAndRangerIdAreSame_true(){
+
+        Animal testAnimal = new Animal(1, "Lion");
+        Animal anotherAnimal = new Animal(1, "Lion");
+        assertTrue(testAnimal.equals(anotherAnimal));
+    }
 }
