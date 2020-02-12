@@ -16,4 +16,16 @@ public class Animal {
     public String getName(){
         return name;
     }
+
+    @Override
+    public boolean equals(Object anotherAnimal){
+        if(!(anotherAnimal instanceof Animal)){
+            return false;
+        } else {
+
+            Animal newAnimal = (Animal) anotherAnimal;
+            return this.getRangerId() == newAnimal.getRangerId() &&
+                    this.getName() == newAnimal.getName();
+        }
+    }
 }
