@@ -52,4 +52,12 @@ public class RangerTest {
         assertEquals(true, Ranger.all().get(0).equals(firstRanger));
         assertEquals(true, Ranger.all().get(1).equals(secondRanger));
     }
+
+    @Test
+    public void save_assignIdToObject(){
+        Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
+        testRanger.save();
+        Ranger savedRanger = Ranger.all().get(0);
+        assertEquals(testRanger.getId(),savedRanger.getId());
+    }
 }
