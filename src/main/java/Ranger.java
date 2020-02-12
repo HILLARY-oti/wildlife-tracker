@@ -13,9 +13,19 @@ public class Ranger {
     }
 
     public static List<Ranger> all() {
-        String sql = "SELECT*FROM rangers";
+        String sql = "SELECT*FROM ranger";
         try (Connection connect = DB.sql2o.open()) {
             return connect.createQuery(sql).executeAndFetch(Ranger.class);
+        }
+    }
+
+    public static Ranger find(int id) {
+        try (Connection connect = DB.sql2o.open()) {
+            String sql = "SELECT*FROM ranger where id=:id";
+            Ranger ranger = connect.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Ranger.class);
+            return ranger;
         }
     }
 
@@ -41,7 +51,7 @@ public class Ranger {
 
     public void save() {
         try (Connection connect = DB.sql2o.open()) {
-            String sql = "INSERT INTO rangers(name, crew) VALUES (:name, :crew)";
+            String sql = "INSERT INTO ranger(name, crew) VALUES (:name, :crew)";
             this.id = (int) connect.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .addParameter("crew", this.crew)
