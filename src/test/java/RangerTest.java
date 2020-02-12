@@ -1,5 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import org.sql2o.*;
 
 public class RangerTest {
 
@@ -28,5 +29,13 @@ public class RangerTest {
         Ranger firstRanger = new Ranger("Rock Stock", "Nyayo");
         Ranger anotherRanger = new Ranger("Rock Stock", "Nyayo");
         assertTrue(firstRanger.equals(anotherRanger));
+    }
+
+    @Test
+
+    public void save_insertsObjectIntoDatabase_Ranger() {
+        Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
+        testRanger.save();
+        assertTrue(Ranger.all().get(0).equals(testRanger));
     }
 }
