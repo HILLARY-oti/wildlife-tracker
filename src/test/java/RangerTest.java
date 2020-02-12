@@ -8,4 +8,10 @@ public class RangerTest {
         Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
         assertEquals(true,testRanger instanceof Ranger);
     }
+    @Test
+
+    public void getCrew_personInstantiatesWithCrew_String() {
+        Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
+        assertEquals("Nyayo", testRanger.getCrew());
+    }
 }
