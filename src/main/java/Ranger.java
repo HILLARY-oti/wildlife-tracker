@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.List;
 import org.sql2o.*;
 
@@ -16,6 +17,25 @@ public class Ranger {
         String sql = "SELECT*FROM ranger";
         try (Connection connect = DB.sql2o.open()) {
             return connect.createQuery(sql).executeAndFetch(Ranger.class);
+        }
+    }
+
+
+    public List<Animal> getAnimals() {
+        try (Connection connect = DB.sql2o.open()) {
+            String sql = "SELECT*FROM animals where rangerId=:id";
+            return connect.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeAndFetch(Animal.class);
+        }
+    }
+
+    public List<EndangeredAnimal> getEndangeredAnimals() {
+        try (Connection connect = DB.sql2o.open()) {
+            String sql = "SELECT * FROM endangeredAnimals where rangerId = :id";
+            return connect.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeAndFetch(EndangeredAnimal.class);
         }
     }
 
@@ -63,4 +83,6 @@ public class Ranger {
     public int getId(){
         return id;
     }
+
+
 }
