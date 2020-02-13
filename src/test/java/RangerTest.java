@@ -2,6 +2,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
 
+import java.lang.reflect.Array;
+
 public class RangerTest {
 
     @Rule
@@ -72,5 +74,33 @@ public class RangerTest {
         Ranger secondRanger = new Ranger("Joker Sam", "Swat");
         secondRanger.save();
         assertEquals(Ranger.find(secondRanger.getId()),secondRanger);
+    }
+
+    @Test
+
+    public void getAnimals_retrievesAllAnimalsFromDatabase_animalsList(){
+
+        Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
+        testRanger.save();
+        Animal firstAnimal = new Animal(testRanger.getId(), "Lion");
+        firstAnimal.save();
+        Animal secondAnimal = new Animal(testRanger.getId(), "Elephant");
+        secondAnimal.save();
+        Animal[] animals = new Animal[] {firstAnimal, secondAnimal};
+        assertTrue(testRanger.getAnimals().containsAll(Animal.all()));
+    }
+
+    @Test
+
+    public void getEndangeredAnimals_retrievesAllEndangeredAnimalsFromDatabase_endangeredAnimalsList(){
+
+        Ranger testRanger = new Ranger("Rock Stock", "Nyayo");
+        testRanger.save();
+       EndangeredAnimal firstEndangeredAnimal = new EndangeredAnimal(testRanger.getId(), "Rhino", "ill", "young");
+       firstEndangeredAnimal.save();
+       EndangeredAnimal secondEndangeredAnimal = new EndangeredAnimal(testRanger.getId(), "Elephant", "healthy", "adult");
+       secondEndangeredAnimal.save();
+       EndangeredAnimal[] endangeredAnimals = new EndangeredAnimal[] {firstEndangeredAnimal, secondEndangeredAnimal};
+       assertTrue(testRanger.getEndangeredAnimals().containsAll(EndangeredAnimal.all()));
     }
 }
