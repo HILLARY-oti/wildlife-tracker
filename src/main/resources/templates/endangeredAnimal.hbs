@@ -1,0 +1,36 @@
+{{#partial "title" }}
+    ADD ENDANGERED ANIMAL
+{{/partial}}
+
+<!--form.hbs.-->
+{{#partial "content"}}
+
+    <h1>ADD ENDANGERED ANIMAL</h1>
+    <form action='/' class="container-fluid">
+        <div class="form-group">
+            <label for="endangeredAnimal">Endangered Animal Name</label>
+            <input id="endangeredAnimal" name="endangeredAnimal" class="form-control" type="text">
+        </div>
+
+        <div class="form-group">
+            <label for="health">Select Health</label>
+            <select id="health" name="health" class="form-control">
+                <option>Healthy</option>
+                <option>Ill</option>
+                <option>Okay</option>
+            </select>
+        </div>
+        <form action='/tracking' class="container-fluid">
+        <div class="form-group">
+            <label for="age">Select Age</label>
+            <select id="age" name="age" class="form-control">
+                <option>Newborn</option>
+                <option>Young</option>
+                <option>Adult</option>
+            </select>
+        </div>
+        <a href="/sighting" type="submit" class="btn btn-success">Submit</a>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

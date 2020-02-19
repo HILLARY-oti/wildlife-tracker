@@ -1,0 +1,26 @@
+{{#partial "content"}}
+<div class="page">
+    <h2 class="text-center">Tracking List</h2>
+{{#if animal}}
+        <div class="card">
+            <h3 class="text-center" id="tracking-title" style="color:blue;">Available Tracking:</h3>
+            <div class="text-center">
+                {{#each animal}}
+                    <p>Id:{{ id }}</p>
+                    <p>Ranger name:{{ name }}</p>
+                    <p>Ranger crew:{{ crew }}</p>
+                    <p>Animal Name:{{ aName }} </p>
+                    <p>Sighting Name:{{ sName }}</p>
+                    <p>Sighting Location:{{ location }}</p>
+                {{/each}}
+            </div>
+        </div>
+
+
+{{else}}
+        <p>Hey!!Ranger no Tracking made</p>
+        <a href="/ranger" type="submit" class="btn btn-success">START TRACKING</a>
+    </div>
+{{/if}}
+{{/partial}}
+{{> layout.hbs}}
