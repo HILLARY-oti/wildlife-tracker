@@ -1,11 +1,11 @@
-import java.util.Objects;
+package models;
 
-import models.Ranger;
+import java.util.Objects;
+import Data.*;
 import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
-
-public class Sightings implements DatabaseManagement{
+public class Sightings implements DatabaseManagement {
 
     private String name;
     private String location;
@@ -15,6 +15,10 @@ public class Sightings implements DatabaseManagement{
         this.name = name;
         this.location = location;
         this.id = id;
+    }
+
+    public Sightings() {
+
     }
 
     public static List<Sightings> all() {
@@ -67,7 +71,7 @@ public class Sightings implements DatabaseManagement{
     @Override
     public void delete() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "DELETE FROM communities WHERE id = :id;";
+            String sql = "DELETE FROM sightings WHERE id = :id;";
             con.createQuery(sql)
                     .addParameter("id", this.id)
                     .executeUpdate();
