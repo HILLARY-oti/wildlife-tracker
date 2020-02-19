@@ -1,0 +1,18 @@
+{{#partial "title" }}
+    ADD ANIMAL
+{{/partial}}
+
+<!--form.hbs.-->
+{{#partial "content"}}
+
+    <h1>ADD ANIMAL</h1>
+    <form action='/tracking' class="container-fluid">
+        <div class="form-group">
+            <label for="animal">Animal Name</label>
+            <input id="animal" name="animal" class="form-control" type="text">
+        </div>
+        <a href="/sighting" type="submit" class="btn btn-success">Submit</a>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}
