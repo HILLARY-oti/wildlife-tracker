@@ -1,9 +1,11 @@
+package models;
+
 import java.util.List;
 import java.util.Objects;
-
+import Data.*;
 import org.sql2o.*;
 
-public class Animal implements DatabaseManagement{
+public class Animal implements DatabaseManagement {
 
     private int rangerId;
     private String name;
@@ -60,6 +62,7 @@ public class Animal implements DatabaseManagement{
                     .getKey();
         }
     }
+
 
     @Override
     public void delete() {
