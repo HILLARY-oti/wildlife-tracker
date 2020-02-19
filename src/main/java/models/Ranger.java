@@ -1,8 +1,11 @@
+package models;
+
 import java.util.ArrayList;
 import java.util.List;
+import Data.*;
 import org.sql2o.*;
 
-public class Ranger implements DatabaseManagement{
+public class Ranger implements DatabaseManagement {
     private String name;
     private String crew;
     private int id;
