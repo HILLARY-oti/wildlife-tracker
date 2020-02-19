@@ -1,6 +1,7 @@
+import models.EndangeredAnimal;
+import models.Ranger;
 import org.junit.*;
 import static org.junit.Assert.*;
-import org.sql2o.*;
 
 public class EndangeredAnimalTest {
 
