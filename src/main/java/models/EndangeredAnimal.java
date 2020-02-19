@@ -1,9 +1,12 @@
+package models;
+
+import Data.*;
 import org.sql2o.*;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
-public class EndangeredAnimal implements DatabaseManagement{
+public class EndangeredAnimal implements DatabaseManagement {
 
     private int rangerId;
     private String name;
